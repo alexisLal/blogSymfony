@@ -1,0 +1,20 @@
+#loading-img{
+    display:none;
+}
+.response_msg{
+    margin-top:10px;
+    font-size:13px;
+    background:#E5D669;
+    color:#ffffff;
+    width:250px;
+    padding:3px;
+    display:none;
+}
+
+#navigation :active {
+    text-decoration: underline;
+}
+
+div #da{
+    width: 1220px;
+}

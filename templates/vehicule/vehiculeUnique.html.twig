@@ -1,0 +1,16 @@
+{% extends '/blog.html.twig' %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/blog.css') }}">
+{% endblock %}
+{% block main %}
+	<a class="btn btn-primary" href={{ path('listeVehicule')}}>Page de liste</a>
+	<div class="card container" style="margin-top: 50px">
+		<h1 class="card-title">{{vehicule.modele}}</h1>
+		<p class="card-text">{{vehicule.marque}}</p>
+		<p class="card-text">{{vehicule.plaque}}</p>
+		<div>
+			<img class="card-img-bottom" src="{{ vich_uploader_asset(vehicule, 'imageFile') }}">
+		</div>
+	</div>
+{% endblock %}

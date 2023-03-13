@@ -1,0 +1,61 @@
+{% extends '/blog.html.twig' %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/blog.css') }}">
+{% endblock %}
+{% block main %}
+	<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+		<div class="">
+			{% if app.user %}
+				<a class="btn btn-primary" href={{ path('article_create') }}>Ajouter un article</a>
+			{% endif %}
+			<div class="container px-4 py-5">
+				<h2 class="pb-2 border-bottom">Nos articles</h2>
+				<div id="da" class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+					{% for article in articles %}
+						<ul style="background-color:#1A74AF; border-radius:20px; width:32%; margin-right: 15px; padding: 15px">
+
+							<a href={{ path('article_show', {"id": article.id} ) }} style="text-decoration:none; color: black">
+								<div>
+									<p>Titre de l'article :
+										{{ article.titre }}</p>
+									<p>Description :
+										{{ article.description }}</p>
+									{% if article.creePar != null %}
+										<p>Article créé par :
+											{{ article.creePar.username }}</p>
+									{% endif %}
+								</div>
+							</a>
+							{% if  app.user == article.creePar and app.user != null  %}
+								<a class="btn btn-info" href={{ path('article_modif', {"id": article.id} ) }}>Modifier article</a>
+								<a class="btn btn-danger" href={{ path('article_suppr', {"id": article.id} ) }}>Supprimer</a>
+							{% endif %}
+						</ul>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+
+{# {% extends '/blog.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
+{% endblock %}
+{% block body %}
+<div class="container">
+<a class ="btn btn-primary" href = {{ path('article_create') }}>Créer un article</a>
+    {% for article in articles %} 
+    <ul> 
+        <a href = {{ path('article_show', {"id": article.id}) }}>
+        <p>Titre de l'article : {{ article.titre }}</p>
+        <p>Description : {{ article.description }}</p>
+        </a>
+        <a class ="btn btn-danger" href = {{ path('article_suppr', {"id": article.id}) }}>Supprimer</a>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %} #}

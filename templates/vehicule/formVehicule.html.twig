@@ -1,0 +1,12 @@
+{# templates/bonjour.html.twig #}
+{% extends '/blog.html.twig' %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/blog.css') }}">
+{% endblock %}
+{% block main %}
+	<div class="container" style="margin-top: 50px">
+		{{ form(form_vehicule) }}
+		</div>
+
+	{% endblock %}
