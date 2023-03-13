@@ -15,6 +15,7 @@
 				<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 					{% for vehicule in vehicules %}
 						<ul style="background-color:#1A74AF; border-radius:20px; width:32%; margin-right: 10px; padding: 15px">
+						
 							<a href={{ path('vehicule_show', {"id": vehicule.id} ) }} style="text-decoration:none; color: black">
 								<p>Modèle du véhicule :
 									{{ vehicule.modele }}</p>
