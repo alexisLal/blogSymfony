@@ -15,7 +15,7 @@
 				<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 					{% for vehicule in vehicules %}
 						<ul style="background-color:#1A74AF; border-radius:20px; width:32%; margin-right: 10px; padding: 15px">
-						
+
 							<a href={{ path('vehicule_show', {"id": vehicule.id} ) }} style="text-decoration:none; color: black">
 								<p>Modèle du véhicule :
 									{{ vehicule.modele }}</p>
@@ -28,7 +28,8 @@
 										{{ vehicule.ajoutePar.username }}</p>
 								{% endif %}
 							</a>
-							{% if  app.user == vehicule.ajoutePar and app.user != null %}
+
+							{% if app.user == vehicule.ajoutePar and app.user != null %}
 								<a class="btn btn-info" href={{ path('vehicule_modif', {"id": vehicule.id} ) }}>Modifier véhicule</a>
 								<a class="btn btn-danger" href={{ path('vehicule_suppr', {"id": vehicule.id} ) }}>Supprimer véhicule</a>
 							{% endif %}
