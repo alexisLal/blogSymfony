@@ -1,0 +1,6 @@
+- [PHP 8.1](https://www.php.net/downloads)
+- [MySQL 8](https://dev.mysql.com/downloads/)
+- [Symfony CLI](https://symfony.com/download)
+- [Git](https://git-scm.com/)
+- [Node et NPM](https://nodejs.org/en/)
+- [Composer](https://getcomposer.org/)
