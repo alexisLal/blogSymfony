@@ -14,19 +14,23 @@
 				<h2 class="pb-2 border-bottom">Nos modèles</h2>
 				<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 					{% for vehicule in vehicules %}
-						<div style="background-color:#1A74AF; border-radius:20px; width:32%; margin-right: 10px; padding: 15px">
-
+						<div class="card" style="background-color:#DCE8F0; border-radius:20px; width:32%; margin-right: 10px; padding: 0px">
 							<a href={{ path('vehicule_show', {"id": vehicule.id} ) }} style="text-decoration:none; color: black">
-								<p>Modèle du véhicule :
-									{{ vehicule.modele }}</p>
-								<p>Marque :
-									{{ vehicule.marque }}</p>
-								<p>Plaque :
-									{{ vehicule.plaque }}</p>
-								{% if vehicule.ajoutePar != null %}
-									<p>Véhicule ajouté par :
-										{{ vehicule.ajoutePar.username }}</p>
+								{% if vehicule.imageName != null %}
+									<img src="{{ vich_uploader_asset(vehicule, 'imageFile') }}" class="card-img-top" style="border-top-left-radius: 20px; border-top-right-radius: 20px">
 								{% endif %}
+								<div class="card-body">
+									<p class="card-text">Modèle du véhicule :
+										{{ vehicule.modele }}</p>
+									<p class="card-text">Marque :
+										{{ vehicule.marque }}</p>
+									<p class="card-text">Plaque :
+										{{ vehicule.plaque }}</p>
+									{% if vehicule.ajoutePar != null %}
+										<p class="card-text">Véhicule ajouté par :
+											{{ vehicule.ajoutePar.username }}</p>
+									{% endif %}
+								</div>
 							</a>
 
 							{% if app.user == vehicule.ajoutePar and app.user != null %}

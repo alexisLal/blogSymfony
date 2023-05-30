@@ -13,16 +13,18 @@
 				<h2 class="pb-2 border-bottom">Nos articles</h2>
 				<div id="da" class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 					{% for article in articles %}
-						<ul style="background-color:#1A74AF; border-radius:20px; width:32%; margin-right: 15px; padding: 15px">
-
+						<div class="card" style="background-color:#DCE8F0; border-radius:20px; width:32%; margin-right: 10px; padding: 0px">
 							<a href={{ path('article_show', {"id": article.id} ) }} style="text-decoration:none; color: black">
-								<div>
-									<p>Titre de l'article :
+								{% if article.imageName != null %}
+									<img src="{{ vich_uploader_asset(article, 'imageFile') }}" class="card-img-top" style="border-top-left-radius: 20px; border-top-right-radius: 20px">
+								{% endif %}
+								<div class="card-body">
+									<p class="card-text">Titre de l'article :
 										{{ article.titre }}</p>
-									<p>Description :
+									<p class="card-text">Description :
 										{{ article.description }}</p>
 									{% if article.creePar != null %}
-										<p>Article créé par :
+										<p class="card-text">Article créé par :
 											{{ article.creePar.username }}</p>
 									{% endif %}
 								</div>
@@ -31,7 +33,7 @@
 								<a class="btn btn-info" href={{ path('article_modif', {"id": article.id} ) }}>Modifier article</a>
 								<a class="btn btn-danger" href={{ path('article_suppr', {"id": article.id} ) }}>Supprimer</a>
 							{% endif %}
-						</ul>
+						</div>
 					{% endfor %}
 				</div>
 			</div>
